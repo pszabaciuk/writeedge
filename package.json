@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "create-migrate": "drizzle-kit generate:sqlite",
+    "apply-migrate": "drizzle-kit push:sqlite",
+    "seed-db": "sqlite3 sqlite.db < seed/seed.sql"
   },
   "dependencies": {
     "better-sqlite3": "^9.2.2",
@@ -24,7 +27,7 @@
     "@types/react-dom": "^18",
     "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.0.1",
-    "drizzle-kit": "^0.20.9",
+    "drizzle-kit": "^0.20.10",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
