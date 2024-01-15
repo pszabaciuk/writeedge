@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
-import { posts } from '@/db/schema';
+import { getAllPosts } from '@/services/postService';
 
 export const GET = async (request: NextRequest) => {
 	try {
-		const res = db.select().from(posts).all();
+		const res = getAllPosts();
 
 		return NextResponse.json(res);
 	} catch (err) {

@@ -1,9 +1,7 @@
 import React from 'react';
 import PostItem from '@/components/PostItem';
 import { Metadata } from 'next';
-import { db } from '@/db';
-import { posts } from '@/db/schema';
-import { PostType } from '@/lib/definitions';
+import { getAllPosts } from '@/services/postService';
 
 export const metadata: Metadata = {
 	title: 'Blog posts',
@@ -11,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const PostsPage = async () => {
-	const allPosts = db.select().from(posts).all() as PostType[];
+	const allPosts = getAllPosts();
 
 	return (
 		<>

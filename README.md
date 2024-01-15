@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js 14 WriteEdge Blog Application with Drizzle ORM and SQLite3
 
-## Getting Started
+## Description
 
-First, run the development server:
+This is a simple blog application built with Next.js 14, utilizing the Drizzle ORM for database interactions and SQLite3 as the database backend. The application demonstrate how to build simple application. Include API, add page, showing all posts and authorization, to restrict adding post only for registered users.
+
+## How to Get Repository
+
+To get a copy of the repository, you can use the following Git command:
+
+```bash
+git clone https://github.com/pszabaciuk/writeedge
+```
+
+## How to Compile
+
+Before compiling the application, make sure you have Node.js and npm installed. Then, navigate to the project directory using the command line and install the dependencies:
+
+```bash
+cd your-blog-repository
+npm install
+```
+
+## Database Setup
+
+The application uses SQLite3 as the database. Make sure to create the necessary tables by running the migration script:
+
+```bash
+npm run apply-migrate
+```
+
+For first time you need some seed data. Make sure to run this only once, after create database.
+
+```bash
+npm run seed-db
+```
+
+### Environment Variables
+
+Ensure that your environment variables are properly configured. Create a .env.local file in the root of your project and add the following variables:
+
+```
+AUTH_SECRET=your_seed_to_secure_authentication
+GITHUB_ID=your_github_app_id
+GITHUB_SECRET=your_github_app_secret
+```
+
+## How to Run
+
+After installing the dependencies, you can run the blog application using the following command:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

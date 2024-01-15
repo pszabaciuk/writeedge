@@ -1,15 +1,9 @@
 import PostItem from '@/components/PostItem';
-import { db } from '@/db';
-import { posts } from '@/db/schema';
 import { PostType } from '@/lib/definitions';
-import { eq } from 'drizzle-orm';
+import { getPostById } from '@/services/postService';
 
 const getData = (slug: string): PostType => {
-	const res = db
-		.select()
-		.from(posts)
-		.where(eq(posts.id, slug))
-		.get() as PostType;
+	const res = getPostById(slug);
 
 	if (!res) {
 		throw new Error('There is no entry with provided id');

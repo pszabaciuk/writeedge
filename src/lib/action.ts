@@ -1,12 +1,12 @@
 'use server';
 
-import { db } from '@/db';
-import { InsertPost, posts } from '@/db/schema';
 import { FormResult } from '@/lib/definitions';
 import { revalidatePath } from 'next/cache';
 import { v4 as uuidv4 } from 'uuid';
 import { signIn, signOut } from './auth';
 import { validateAddNewPostData } from './validations';
+import { addPost } from '@/services/postService';
+import { InsertPost } from '@/db/schema';
 
 export const handleGithubLogin = async () => {
 	await signIn('github');
@@ -35,7 +35,7 @@ export const addNewPost = async (
 			content: formData.get('content')?.toString() ?? '',
 		};
 
-		await db.insert(posts).values(rawFormData);
+		addPost(rawFormData);
 
 		revalidatePath('/posts');
 
